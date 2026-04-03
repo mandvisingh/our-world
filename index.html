@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Little Corner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400;1,600&family=Lora:ital,wght@0,400;1,400&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ══════════ LANDING ══════════ -->
+<section id="landing">
+
+  <!-- Sky layers -->
+  <div class="sky-layer" id="skyL"></div>
+  <div class="stars" id="starsL"></div>
+  <div class="moon" id="moonEl"></div>
+  <div class="sun" id="sunEl"></div>
+  <div class="rain-container" id="rainL"></div>
+  <div class="cloud c1"></div>
+  <div class="cloud c2"></div>
+  <div class="cloud c3"></div>
+
+  <!-- Ground -->
+  <div class="ground-layer"><div class="grass-top"></div></div>
+  <div class="path"></div>
+
+  <!-- Fence -->
+  <div class="fence-wrap">
+    <div class="fence-rail2"></div>
+    <div class="fence-rail"></div>
+    <div class="fence" id="fenceEl"></div>
+  </div>
+
+  <!-- Trees -->
+  <div class="tree t1"><div class="canopy"></div><div class="trunk"></div></div>
+  <div class="tree t2"><div class="canopy"></div><div class="trunk"></div></div>
+  <div class="tree t3"><div class="canopy"></div><div class="trunk"></div></div>
+  <div class="tree t4"><div class="canopy"></div><div class="trunk"></div></div>
+
+  <!-- Bushes & flowers -->
+  <div class="bush-wrap-l"><div class="bush"></div></div>
+  <div class="bush-wrap-r"><div class="bush"></div></div>
+  <div class="garden gl">
+    <span class="fl" style="--sd:2.8s">🌸</span>
+    <span class="fl" style="--sd:3.5s">🌼</span>
+    <span class="fl" style="--sd:2.5s">🌷</span>
+    <span class="fl" style="--sd:4s">🌸</span>
+    <span class="fl" style="--sd:3.1s">🌺</span>
+  </div>
+  <div class="garden gr">
+    <span class="fl" style="--sd:3.3s">🌺</span>
+    <span class="fl" style="--sd:2.7s">🌸</span>
+    <span class="fl" style="--sd:3.7s">🌼</span>
+    <span class="fl" style="--sd:2.9s">🌷</span>
+  </div>
+
+  <!-- String lights -->
+  <svg class="lights-svg" viewBox="0 0 1000 55" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M0,6 Q160,38 320,10 Q480,38 500,8 Q520,38 680,10 Q840,38 1000,6" fill="none" stroke="#c09048" stroke-width="1.8"/>
+    <path d="M-10,18 Q200,46 410,20 Q600,46 800,22 Q900,40 1010,18" fill="none" stroke="#a87838" stroke-width="1.3" opacity="0.5"/>
+    <g class="bulb-g" style="--gd:1.9s"><circle cx="55"  cy="14" r="5.5" fill="#FFE566"/><rect x="53"  y="8"  width="4" height="5" rx="1" fill="#888"/></g>
+    <g class="bulb-g" style="--gd:2.4s"><circle cx="125" cy="28" r="5.5" fill="#F4A7B9"/><rect x="123" y="22" width="4" height="5" rx="1" fill="#888"/></g>
+    <g class="bulb-g" style="--gd:1.6s"><circle cx="200" cy="33" r="5.5" fill="#A8E4BC"/><rect x="198" y="27" width="4" height="5" rx="1" fill="#888"/></g>
+    <g class="bulb-g" style="--gd:3.1s"><circle cx="275" cy="24" r="5.5" fill="#FFE566"/><rect x="273" y="18" width="4" height="5" rx="1" fill="#888"/></g>
+    <g class="bulb-g" style="--gd:2.0s"><circle cx="355" cy="33" r="5.5" fill="#F4A7B9"/><rect x="353" y="27" width="4" height="5" rx="1" fill="#888"/></g>
+    <g class="bulb-g" style="--gd:1.5s"><circle cx="430" cy="26" r="5.5" fill="#A8E4BC"/><rect x="428" y="20" width="4" height="5" rx="1" fill="#888"/></g>
+    <g class="bulb-g" style="--gd:2.8s"><circle cx="500" cy="12" r="5.5" fill="#FFE566"/><rect x="498" y="6"  width="4" height="5" rx="1" fill="#888"/></g>
+    <g class="bulb-g" style="--gd:1.8s"><circle cx="573" cy="26" r="5.5" fill="#F4A7B9"/><rect x="571" y="20" width="4" height="5" rx="1" fill="#888"/></g>
+    <g class="bulb-g" style="--gd:2.5s"><circle cx="648" cy="33" r="5.5" fill="#A8E4BC"/><rect x="646" y="27" width="4" height="5" rx="1" fill="#888"/></g>
+    <g class="bulb-g" style="--gd:1.7s"><circle cx="722" cy="24" r="5.5" fill="#FFE566"/><rect x="720" y="18" width="4" height="5" rx="1" fill="#888"/></g>
+    <g class="bulb-g" style="--gd:3.0s"><circle cx="800" cy="33" r="5.5" fill="#F4A7B9"/><rect x="798" y="27" width="4" height="5" rx="1" fill="#888"/></g>
+    <g class="bulb-g" style="--gd:2.2s"><circle cx="878" cy="28" r="5.5" fill="#A8E4BC"/><rect x="876" y="22" width="4" height="5" rx="1" fill="#888"/></g>
+    <g class="bulb-g" style="--gd:1.9s"><circle cx="945" cy="14" r="5.5" fill="#FFE566"/><rect x="943" y="8"  width="4" height="5" rx="1" fill="#888"/></g>
+  </svg>
+
+  <!-- ══ TRAILER ══ -->
+  <div class="trailer-wrap">
+    <div class="t-awning-outer"><div class="t-fringe-row" id="fringeRow"></div></div>
+    <div class="t-body">
+      <div class="t-stripe"><span class="t-sign">📚 our little corner café ☕</span></div>
+      <div class="t-windows">
+        <div class="t-win"></div>
+        <div class="t-win t-win-mid"><div class="coffee-wiggle">☕</div></div>
+        <div class="t-win"></div>
+      </div>
+      <div class="t-door"></div>
+    </div>
+    <div class="t-wheels">
+      <div class="wheel"></div>
+      <div class="wheel"></div>
+    </div>
+    <div class="t-hitch"></div>
+  </div>
+
+  <!-- Patio tables -->
+  <div class="patio">
+    <div><span class="p-plant">🪴</span></div>
+    <div class="p-table"><div class="p-cup">🍵</div><div class="p-top"></div><div class="p-leg"></div></div>
+    <div class="p-table"><div class="p-cup">☕</div><div class="p-top"></div><div class="p-leg"></div></div>
+    <div><span class="p-plant">🌿</span></div>
+  </div>
+
+  <!--
+    ══ AVATARS ══
+    Replace the placeholder divs below with your own avatar images.
+    Recommended size: ~60px wide × 110px tall PNG with transparent background.
+    Place your images in the assets/ folder and update the src paths.
+  -->
+
+  <!-- Her avatar — replace avatar-her.png with your image -->
+  <div class="av-wrap av-her-pos" id="avHer">
+    <div class="av-bubble">matcha time! 🍵</div>
+    <img class="her-svg" src="assets/avatar-her.png" alt="Her avatar"
+         width="60" height="110"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+    <!-- fallback emoji if no image -->
+    <div style="display:none;font-size:3rem;line-height:1">🧑‍💻</div>
+  </div>
+
+  <!-- His avatar — replace avatar-him.png with your image -->
+  <div class="av-wrap av-his-pos" id="avHim">
+    <div class="av-bubble">just got home! ☕</div>
+    <img class="his-svg" src="assets/avatar-him.png" alt="His avatar"
+         width="60" height="120"
+         onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+    <!-- fallback emoji if no image -->
+    <div style="display:none;font-size:3rem;line-height:1">🧑‍💼</div>
+  </div>
+
+  <!-- ══ GEORGE — dark tabby ══ -->
+  <div class="cat-wrap george-pos" id="george">
+    <div class="cat-name-tag">George · tabby 🐾</div>
+    <!--
+      Replace with a real photo of George if you like:
+      <img class="george-svg" src="assets/george.png" width="62" height="50" alt="George"/>
+    -->
+    <svg class="george-svg" width="62" height="50" viewBox="0 0 62 50" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="31" cy="37" rx="19" ry="11" fill="#2C2018"/>
+      <path d="M14,32 Q11,37 13,43" stroke="#1a1208" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      <path d="M20,29 Q18,36 19,43" stroke="#1a1208" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <path d="M31,28 Q30,35 31,43" stroke="#1a1208" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <path d="M41,29 Q43,36 42,43" stroke="#1a1208" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <path d="M48,32 Q51,37 49,43" stroke="#1a1208" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      <ellipse cx="31" cy="39" rx="11" ry="7" fill="#4A3820" opacity="0.55"/>
+      <ellipse cx="31" cy="43" rx="6" ry="4" fill="#5A4030" opacity="0.6"/>
+      <circle cx="31" cy="20" r="13" fill="#2C2018"/>
+      <path d="M23,13 Q22,9 23,7" stroke="#1a1208" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M31,12 Q31,8 31,6" stroke="#1a1208" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M39,13 Q40,9 39,7" stroke="#1a1208" stroke-width="1.5" stroke-linecap="round"/>
+      <path d="M25,17 Q27,14.5 29,17 Q31,14.5 33,17 Q35,14.5 37,17" stroke="#1a1208" stroke-width="1.2" fill="none" stroke-linecap="round"/>
+      <polygon points="17,14 20,4 26,13" fill="#2C2018"/>
+      <polygon points="18.5,13 20,6 25,13" fill="#503828"/>
+      <polygon points="45,14 42,4 36,13" fill="#2C2018"/>
+      <polygon points="43.5,13 42,6 37,13" fill="#503828"/>
+      <ellipse cx="26" cy="19" rx="4" ry="3.5" fill="#4A8820"/>
+      <ellipse cx="36" cy="19" rx="4" ry="3.5" fill="#4A8820"/>
+      <ellipse cx="26" cy="19" rx="2.8" ry="2.5" fill="#5A9E28"/>
+      <ellipse cx="36" cy="19" rx="2.8" ry="2.5" fill="#5A9E28"/>
+      <ellipse cx="26" cy="19" rx="1.6" ry="2.8" fill="#080604"/>
+      <ellipse cx="36" cy="19" rx="1.6" ry="2.8" fill="#080604"/>
+      <circle cx="27.2" cy="17.8" r="1.2" fill="white"/>
+      <circle cx="37.2" cy="17.8" r="1.2" fill="white"/>
+      <polygon points="29.5,23.5 32.5,23.5 31,25.5" fill="#C85070"/>
+      <path d="M29,26 Q31,28 33,26" stroke="#4A3020" stroke-width="1" fill="none" stroke-linecap="round"/>
+      <line x1="10" y1="21" x2="23" y2="22" stroke="#e8e0d0" stroke-width="1.1"/>
+      <line x1="10" y1="23.5" x2="23" y2="23.2" stroke="#e8e0d0" stroke-width="1.1"/>
+      <line x1="52" y1="21" x2="39" y2="22" stroke="#e8e0d0" stroke-width="1.1"/>
+      <line x1="52" y1="23.5" x2="39" y2="23.2" stroke="#e8e0d0" stroke-width="1.1"/>
+      <path d="M50,37 Q61,26 57,17 Q55,12 53,16" stroke="#2C2018" stroke-width="6" fill="none" stroke-linecap="round"/>
+      <path d="M50,37 Q61,26 57,17 Q55,12 53,16" stroke="#1a1208" stroke-width="3" fill="none" stroke-linecap="round" stroke-dasharray="3,4"/>
+      <ellipse cx="14" cy="47" rx="5.5" ry="3" fill="#2C2018"/>
+      <ellipse cx="24" cy="48.5" rx="5.5" ry="3" fill="#2C2018"/>
+      <ellipse cx="34" cy="48.5" rx="5.5" ry="3" fill="#2C2018"/>
+      <ellipse cx="46" cy="47" rx="5.5" ry="3" fill="#2C2018"/>
+    </svg>
+  </div>
+
+  <!-- ══ JERRY — fluffy Siberian, white paws ══ -->
+  <div class="cat-wrap jerry-pos" id="jerry">
+    <div class="cat-name-tag">Jerry · siberian 🐾</div>
+    <!--
+      Replace with a real photo of Jerry if you like:
+      <img class="jerry-svg" src="assets/jerry.png" width="68" height="54" alt="Jerry"/>
+    -->
+    <svg class="jerry-svg" width="68" height="54" viewBox="0 0 68 54" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <ellipse cx="34" cy="39" rx="22" ry="13" fill="#8A8070"/>
+      <path d="M13,33 Q9,39 11,45" stroke="#6A6058" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <path d="M17,30 Q14,37 15,44" stroke="#6A6058" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      <path d="M23,28 Q21,36 22,44" stroke="#6A6058" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <path d="M34,27 Q33,35 34,44" stroke="#6A6058" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <path d="M45,28 Q47,36 46,44" stroke="#6A6058" stroke-width="2" stroke-linecap="round" fill="none"/>
+      <path d="M51,30 Q54,37 53,44" stroke="#6A6058" stroke-width="2.5" stroke-linecap="round" fill="none"/>
+      <path d="M55,33 Q59,39 57,45" stroke="#6A6058" stroke-width="3" stroke-linecap="round" fill="none"/>
+      <ellipse cx="34" cy="42" rx="14" ry="9" fill="#C0B8A8" opacity="0.55"/>
+      <circle cx="34" cy="21" r="15" fill="#8A8070"/>
+      <ellipse cx="18" cy="24" rx="9" ry="7" fill="#9A9080" opacity="0.9"/>
+      <ellipse cx="50" cy="24" rx="9" ry="7" fill="#9A9080" opacity="0.9"/>
+      <polygon points="18,14 22,2 28,13" fill="#8A8070"/>
+      <polygon points="19.5,13 22,4 27,13" fill="#706860"/>
+      <path d="M21,3 Q22,0 23,3" stroke="#6A6058" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <polygon points="50,14 46,2 40,13" fill="#8A8070"/>
+      <polygon points="48.5,13 46,4 41,13" fill="#706860"/>
+      <path d="M45,3 Q46,0 47,3" stroke="#6A6058" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+      <ellipse cx="27" cy="20" rx="4.5" ry="4" fill="#4898B8"/>
+      <ellipse cx="41" cy="20" rx="4.5" ry="4" fill="#4898B8"/>
+      <ellipse cx="27" cy="20" rx="1.8" ry="3.2" fill="#080808"/>
+      <ellipse cx="41" cy="20" rx="1.8" ry="3.2" fill="#080808"/>
+      <circle cx="28.5" cy="18.5" r="1.4" fill="white"/>
+      <circle cx="42.5" cy="18.5" r="1.4" fill="white"/>
+      <polygon points="32,25 36,25 34,27.5" fill="#D87090"/>
+      <path d="M32,28 Q34,30.5 36,28" stroke="#907878" stroke-width="1.1" fill="none" stroke-linecap="round"/>
+      <line x1="7"  y1="22" x2="24" y2="23"   stroke="#f0ede8" stroke-width="1.2"/>
+      <line x1="7"  y1="25" x2="24" y2="24.8" stroke="#f0ede8" stroke-width="1.2"/>
+      <line x1="61" y1="22" x2="44" y2="23"   stroke="#f0ede8" stroke-width="1.2"/>
+      <line x1="61" y1="25" x2="44" y2="24.8" stroke="#f0ede8" stroke-width="1.2"/>
+      <path d="M56,39 Q68,27 64,16 Q62,9 60,13" stroke="#8A8070" stroke-width="11" fill="none" stroke-linecap="round"/>
+      <path d="M56,39 Q68,27 64,16 Q62,9 60,13" stroke="#6A6058" stroke-width="6"  fill="none" stroke-linecap="round"/>
+      <path d="M56,39 Q68,27 64,16 Q62,9 60,13" stroke="#A8A090" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <!-- WHITE PAWS -->
+      <ellipse cx="14" cy="51" rx="6.5" ry="3.5" fill="#E8E4DC"/>
+      <ellipse cx="25" cy="52.5" rx="6.5" ry="3.5" fill="#E8E4DC"/>
+      <ellipse cx="38" cy="52.5" rx="6.5" ry="3.5" fill="#E8E4DC"/>
+      <ellipse cx="52" cy="51" rx="6.5" ry="3.5" fill="#E8E4DC"/>
+    </svg>
+  </div>
+
+  <!-- Hero text -->
+  <div class="hero-zone">
+    <div class="weather-pill" id="wxBadge">📍 Edmonton · loading...</div>
+    <p class="welcome-tag">welcome home</p>
+    <h1 class="hero-title">Our Little<br><em>Corner of the World</em></h1>
+    <p class="hero-sub">two worlds · one cozy evening</p>
+  </div>
+
+  <!-- World selector buttons -->
+  <div class="btn-zone">
+    <button class="world-btn btn-her" onclick="showWorld('her')">
+      <span class="btn-icon">🌿</span>
+      <span class="btn-label">Her World</span>
+      <span class="btn-desc">wfh · goodreads<br>matcha & pink drinks</span>
+    </button>
+    <button class="world-btn btn-him" onclick="showWorld('his')">
+      <span class="btn-icon">📋</span>
+      <span class="btn-label">His World</span>
+      <span class="btn-desc">office · kindle & audible<br>venti dark roast</span>
+    </button>
+    <button class="world-btn btn-us" onclick="showWorld('our')">
+      <span class="btn-icon">🐾</span>
+      <span class="btn-label">Together</span>
+      <span class="btn-desc">george & jerry<br>the pit · the good fight</span>
+    </button>
+  </div>
+
+</section>
+
+<!-- ══════════ HER WORLD ══════════ -->
+<section id="her-world" class="world-panel">
+  <div class="panel-header">
+    <button class="back-btn" onclick="goHome()">← back home</button>
+    <div style="text-align:right">
+      <div class="panel-title her-title">Her World</div>
+      <div class="panel-tag her-tag">software engineer · wfh · reader · cat mum</div>
+    </div>
+  </div>
+  <div class="grid-2">
+    <div class="card her-card">
+      <div class="c-icon">💻</div>
+      <div class="c-title">The WFH Setup</div>
+      <div class="c-body">Cozy corner desk, soft playlist humming. Production LLM pipelines, evaluation frameworks — and a matcha always within arm's reach. George probably supervising from the monitor.</div>
+    </div>
+    <div class="card her-card">
+      <div class="c-icon">📚</div>
+      <div class="c-title">Her Reading Life</div>
+      <div class="c-body">Goodreads shelf curated with love. Every book tracked, rated, shelved. Currently reading, want to read, devoured &amp; starred — all right here below.</div>
+    </div>
+    <div class="card her-card span2">
+      <div class="c-icon">🍃</div>
+      <div class="c-title">Her Drinks</div>
+      <div class="c-body">Mood-dependent. Always considered. Never boring.</div>
+      <div class="drinks-row">
+        <div class="dp dp-m">🍵 Matcha Latte</div>
+        <div class="dp dp-p">🌸 Pink Drink</div>
+        <div class="dp dp-l">☕ Latte</div>
+      </div>
+    </div>
+    <div class="card her-card">
+      <div class="c-icon">🐈</div>
+      <div class="c-title">The Supervisors</div>
+      <div class="c-body">George (tabby) audits the keyboard at critical moments. Jerry (siberian floof) claims the warm laptop. WFH commute: bed to desk. They approve.</div>
+    </div>
+    <div class="card her-card">
+      <div class="c-icon">🌱</div>
+      <div class="c-title">The Vibe</div>
+      <div class="c-body">Edmonton mornings, soft natural light, houseplants, lofi beats. The world outside can wait — there's code to write and a book waiting for after 5pm.</div>
+    </div>
+  </div>
+  <div class="books-wrap">
+    <div class="sec-label">📖 her bookshelf — from goodreads</div>
+    <div class="shelf" id="shelf">
+      <div class="spine s1">The Midnight Library</div>
+      <div class="spine s2">Babel</div>
+      <div class="spine s3">Tomorrow &amp; Tomorrow</div>
+      <div class="spine s4">Lessons in Chemistry</div>
+      <div class="spine s5">The Atlas Six</div>
+      <div class="spine s6">Circe</div>
+      <div class="spine s7">Piranesi</div>
+      <div class="spine s8">Normal People</div>
+      <div class="spine s9">Daisy Jones</div>
+      <div class="spine s10">Anxious People</div>
+    </div>
+    <div class="upload-z" onclick="document.getElementById('csvIn').click()">
+      <div style="font-size:1.7rem;margin-bottom:5px">📂</div>
+      <p>drop your goodreads csv here · or click to browse</p>
+      <p style="margin-top:3px;opacity:0.6">your books will appear on the shelf above</p>
+      <input type="file" id="csvIn" accept=".csv" style="display:none" onchange="loadCSV(event)">
+    </div>
+  </div>
+  <div class="world-nav">
+    <button class="nc nc-him" onclick="showWorld('his')">→ His World</button>
+    <button class="nc nc-us"  onclick="showWorld('our')">→ Together</button>
+    <button class="nc nc-home" onclick="goHome()">↩ Home</button>
+  </div>
+</section>
+
+<!-- ══════════ HIS WORLD ══════════ -->
+<section id="his-world" class="world-panel">
+  <div class="panel-header">
+    <div>
+      <div class="panel-title his-title">His World</div>
+      <div class="panel-tag his-tag">government · office days · kindle &amp; audible</div>
+    </div>
+    <button class="back-btn" onclick="goHome()" style="border-color:#b0bfd0;color:var(--navy)">← back home</button>
+  </div>
+  <div class="grid-2">
+    <div class="card his-card-style">
+      <div class="c-icon">🏛️</div>
+      <div class="c-title">The Office Day</div>
+      <div class="c-body">Structured meetings, quiet hallways, official correspondence. The kind of work where what you do quietly matters. Out early, home for dinner — coffee the whole way.</div>
+      <div class="commute-bar">
+        <div class="c-step"><span class="c-dot" style="background:#7a9ec8"></span>morning commute + coffee</div>
+        <div class="c-step"><span class="c-dot" style="background:#5a7a9e"></span>office hours</div>
+        <div class="c-step"><span class="c-dot" style="background:#3a5a7a"></span>evening — home to George &amp; Jerry</div>
+      </div>
+    </div>
+    <div class="card his-card-style" style="display:flex;flex-direction:column;align-items:center">
+      <div class="c-title" style="text-align:center;width:100%;margin-bottom:12px">His Coffee</div>
+      <div class="steam">
+        <span style="height:12px"></span>
+        <span style="height:16px"></span>
+        <span style="height:12px"></span>
+      </div>
+      <div class="cup-wrap">
+        <div class="cup-b"><div class="cup-cream-top"></div><div class="cup-h"></div></div>
+        <div class="cup-saucer"></div>
+      </div>
+      <div class="cup-lbl">venti dark roast<br>extra shot · cream &amp; sugar</div>
+    </div>
+    <div class="card his-card-style">
+      <div class="c-icon">📖</div>
+      <div class="c-title">Kindle &amp; Audible</div>
+      <div class="c-body">Commute chapters. Lunch break pages. The kindle goes everywhere he goes.</div>
+      <div class="kindle-shelf">
+        <div class="k-book"><span class="k-icon">📱</span><span class="k-lbl">Kindle</span></div>
+        <div class="k-book"><span class="k-icon">🎧</span><span class="k-lbl">Audible</span></div>
+        <div class="k-book"><span class="k-icon">⭐</span><span class="k-lbl">Faves</span></div>
+      </div>
+      <div class="aud-badge">🎧 Audible on the commute</div>
+    </div>
+    <div class="card his-card-style">
+      <div class="c-icon">🐾</div>
+      <div class="c-title">Coming Home To</div>
+      <div class="c-body">George at the door. Jerry already on the couch. A matcha-sipping software engineer who probably just deployed something. The absolute best part of every day.</div>
+    </div>
+  </div>
+  <div class="world-nav">
+    <button class="nc nc-her"  onclick="showWorld('her')">→ Her World</button>
+    <button class="nc nc-us"   onclick="showWorld('our')">→ Together</button>
+    <button class="nc nc-home" onclick="goHome()">↩ Home</button>
+  </div>
+</section>
+
+<!-- ══════════ TOGETHER ══════════ -->
+<section id="our-world" class="world-panel">
+  <div class="panel-header" style="justify-content:center;flex-direction:column;text-align:center">
+    <div class="panel-title our-title-txt">Where Our Worlds Meet</div>
+    <div class="panel-tag our-tag">evenings · weekends · the couch · george &amp; jerry</div>
+  </div>
+  <div class="grid-3">
+    <div class="card our-card-style span2">
+      <div class="c-icon" style="text-align:center">🛋️</div>
+      <div class="c-title" style="text-align:center;margin-bottom:12px">Our Evening Ritual</div>
+      <div class="timeline">
+        <div class="trow"><div class="ttime">5:30 pm</div><div class="tdl"><div class="tdot"></div><div class="tline"></div></div><div class="tevent">He's home. Shoes off. George appears from nowhere. Jerry pretends he wasn't waiting.</div></div>
+        <div class="trow"><div class="ttime">6:00 pm</div><div class="tdl"><div class="tdot"></div><div class="tline"></div></div><div class="tevent">Dinner together. She closes the laptop. He puts down the phone. Both cats at the table, obviously.</div></div>
+        <div class="trow"><div class="ttime">7:30 pm</div><div class="tdl"><div class="tdot"></div><div class="tline"></div></div><div class="tevent">Couch time. Both cats located and claimed. Show time begins. One more episode? Always.</div></div>
+        <div class="trow"><div class="ttime">late ✨</div><div class="tdl"><div class="tdot"></div></div><div class="tevent">Lights low. Credits rolling. George purring. Jerry — a fluffy pillow. Home.</div></div>
+      </div>
+    </div>
+    <div class="card our-card-style">
+      <div class="c-icon" style="text-align:center">🐾</div>
+      <div class="c-title" style="text-align:center;margin-bottom:8px">George &amp; Jerry</div>
+      <div class="cats-duo">
+        <div class="cat-card">
+          <svg width="44" height="36" viewBox="0 0 62 50"><ellipse cx="31" cy="37" rx="19" ry="11" fill="#2C2018"/><circle cx="31" cy="20" r="13" fill="#2C2018"/><polygon points="17,14 20,4 26,13" fill="#2C2018"/><polygon points="18.5,13 20,6 25,13" fill="#503828"/><polygon points="45,14 42,4 36,13" fill="#2C2018"/><polygon points="43.5,13 42,6 37,13" fill="#503828"/><ellipse cx="26" cy="19" rx="4" ry="3.5" fill="#5A9E28"/><ellipse cx="36" cy="19" rx="4" ry="3.5" fill="#5A9E28"/><ellipse cx="26" cy="19" rx="1.6" ry="2.8" fill="#080604"/><ellipse cx="36" cy="19" rx="1.6" ry="2.8" fill="#080604"/><circle cx="27.2" cy="17.8" r="1.2" fill="white"/><circle cx="37.2" cy="17.8" r="1.2" fill="white"/><polygon points="29.5,23.5 32.5,23.5 31,25.5" fill="#C85070"/></svg>
+          <div class="cat-nm">George</div>
+          <div class="cat-br">tabby · keyboard thief</div>
+        </div>
+        <div class="cat-card">
+          <svg width="44" height="36" viewBox="0 0 68 54"><ellipse cx="34" cy="39" rx="22" ry="13" fill="#8A8070"/><circle cx="34" cy="21" r="15" fill="#8A8070"/><ellipse cx="18" cy="24" rx="9" ry="7" fill="#9A9080" opacity="0.9"/><ellipse cx="50" cy="24" rx="9" ry="7" fill="#9A9080" opacity="0.9"/><polygon points="18,14 22,2 28,13" fill="#8A8070"/><polygon points="50,14 46,2 40,13" fill="#8A8070"/><ellipse cx="27" cy="20" rx="4.5" ry="4" fill="#4898B8"/><ellipse cx="41" cy="20" rx="4.5" ry="4" fill="#4898B8"/><ellipse cx="27" cy="20" rx="1.8" ry="3.2" fill="#080808"/><ellipse cx="41" cy="20" rx="1.8" ry="3.2" fill="#080808"/><circle cx="28.5" cy="18.5" r="1.4" fill="white"/><circle cx="42.5" cy="18.5" r="1.4" fill="white"/><polygon points="32,25 36,25 34,27.5" fill="#D87090"/><ellipse cx="14" cy="51" rx="6.5" ry="3.5" fill="#E8E4DC"/><ellipse cx="25" cy="52.5" rx="6.5" ry="3.5" fill="#E8E4DC"/><ellipse cx="38" cy="52.5" rx="6.5" ry="3.5" fill="#E8E4DC"/><ellipse cx="52" cy="51" rx="6.5" ry="3.5" fill="#E8E4DC"/></svg>
+          <div class="cat-nm">Jerry</div>
+          <div class="cat-br">siberian · pro napper</div>
+        </div>
+      </div>
+    </div>
+    <div class="card our-card-style span2">
+      <div class="c-icon">📺</div>
+      <div class="c-title">What We Watch</div>
+      <div class="show-list">
+        <div class="show-row"><div class="sh-icon">🥊</div><div class="sh-info"><div class="sh-name">The Pit</div><div class="sh-desc">gritty · emotional · can't look away</div></div><div class="sh-badge b-watch">watching</div></div>
+        <div class="show-row"><div class="sh-icon">⚖️</div><div class="sh-info"><div class="sh-name">The Good Fight</div><div class="sh-desc">sharp · political · brilliant dialogue</div></div><div class="sh-badge b-watch">watching</div></div>
+        <div class="show-row" style="opacity:0.55"><div class="sh-icon">🎬</div><div class="sh-info"><div class="sh-name">Next up...</div><div class="sh-desc">tbd · always one more show</div></div><div class="sh-badge b-next">up next</div></div>
+      </div>
+    </div>
+    <div class="card our-card-style">
+      <div class="c-icon">☕🍵</div>
+      <div class="c-title">Our Backyard Corner</div>
+      <div class="c-body" style="font-size:0.82rem">The book trailer. Fairy lights overhead. His dark roast, her matcha. George investigating everything. Jerry claiming the best chair. Books everywhere. This is home.</div>
+    </div>
+  </div>
+  <div class="world-nav">
+    <button class="nc nc-her"  onclick="showWorld('her')">→ Her World</button>
+    <button class="nc nc-him"  onclick="showWorld('his')">→ His World</button>
+    <button class="nc nc-home" onclick="goHome()">↩ Home</button>
+  </div>
+</section>
+
+<!-- Floating cat button -->
+<div class="float-cat" id="floatCat" onclick="goHome()" title="go home 🏠">
+  <svg width="34" height="28" viewBox="0 0 62 50">
+    <ellipse cx="31" cy="37" rx="19" ry="11" fill="#2C2018"/>
+    <circle cx="31" cy="20" r="13" fill="#2C2018"/>
+    <polygon points="17,14 20,4 26,13" fill="#2C2018"/>
+    <polygon points="45,14 42,4 36,13" fill="#2C2018"/>
+    <ellipse cx="26" cy="19" rx="3.5" ry="3" fill="#5A9E28"/>
+    <ellipse cx="36" cy="19" rx="3.5" ry="3" fill="#5A9E28"/>
+  </svg>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

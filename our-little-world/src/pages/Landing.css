@@ -1,0 +1,271 @@
+/* ── scene container ── */
+
+.scene {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'DM Mono', monospace;
+  transition: color 1s ease;
+}
+
+.scene.day {
+  color: #2a1a08;
+}
+
+.scene.night {
+  color: #e8e0f0;
+}
+
+/* ── background images (cross-fade) ── */
+
+.scene-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center bottom;
+  opacity: 0;
+  transition: opacity 1s ease;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* fill letterbox area behind the SVG */
+.day {
+  background: #b0cfe0;
+}
+.night {
+  background: #0d1b2a;
+}
+
+.scene-bg.visible {
+  opacity: 1;
+}
+
+/* ── title ── */
+
+.title {
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(1.4rem, 4vw, 2.8rem);
+  letter-spacing: 0.02em;
+  text-align: center;
+  white-space: nowrap;
+  margin: 0;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* ── day/night badge ── */
+
+.badge {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+  z-index: 2;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85rem;
+  padding: 6px 14px;
+  border-radius: 20px;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.day .badge {
+  background: rgba(255, 248, 230, 0.6);
+  color: #2a1a08;
+}
+
+.night .badge {
+  background: rgba(30, 20, 50, 0.5);
+  color: #e8e0f0;
+}
+
+/* ── bottom gradient fade ── */
+
+.bottom-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 35%;
+  z-index: 1;
+  pointer-events: none;
+  transition: background 1s ease;
+}
+
+.day .bottom-fade {
+  background: linear-gradient(
+    to top,
+    rgba(255, 252, 240, 0.85) 0%,
+    rgba(255, 252, 240, 0.4) 50%,
+    transparent 100%
+  );
+}
+
+.night .bottom-fade {
+  background: linear-gradient(
+    to top,
+    rgba(10, 6, 20, 0.85) 0%,
+    rgba(10, 6, 20, 0.4) 50%,
+    transparent 100%
+  );
+}
+
+/* ── info panels ── */
+
+.info-left,
+.info-right {
+  position: absolute;
+  bottom: 28px;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.info-left {
+  left: 32px;
+}
+
+.info-right {
+  right: 32px;
+  align-items: flex-end;
+}
+
+/* clock */
+.clock {
+  font-family: 'DM Mono', monospace;
+  font-size: 1.6rem;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+
+/* date */
+.date {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+/* weather */
+.temp {
+  font-family: 'DM Mono', monospace;
+  font-size: 1.6rem;
+  font-weight: 400;
+}
+
+.condition {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+/* ── clickable avatars ── */
+
+.avatars {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 4;
+  display: flex;
+  gap: 120px;
+  align-items: flex-end;
+}
+
+.avatar-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.2s ease;
+}
+
+.avatar-btn:hover {
+  transform: scale(1.08);
+}
+
+.avatar-btn:active {
+  transform: scale(0.96);
+}
+
+.avatar-img {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.2);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.avatar-btn:hover .avatar-img {
+  border-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.avatar-label {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* ── mobile adjustments ── */
+
+@media (max-width: 600px) {
+  .title {
+    font-size: clamp(1rem, 5vw, 1.6rem);
+    white-space: normal;
+    width: 90%;
+    top: 6%;
+  }
+
+  .clock,
+  .temp {
+    font-size: 1.2rem;
+  }
+
+  .info-left {
+    left: 16px;
+    bottom: 20px;
+  }
+
+  .info-right {
+    right: 16px;
+    bottom: 20px;
+  }
+
+  .badge {
+    top: 12px;
+    right: 12px;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+  }
+
+  .avatars {
+    gap: 60px;
+    bottom: 8%;
+  }
+
+  .avatar-img {
+    width: 78px;
+    height: 78px;
+  }
+
+  .avatar-label {
+    font-size: 0.75rem;
+  }
+}

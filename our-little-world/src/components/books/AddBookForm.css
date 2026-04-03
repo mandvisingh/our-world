@@ -1,0 +1,77 @@
+.form-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 1.3rem;
+  color: #6B4F35;
+  margin: 0 0 20px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 10px 14px;
+  border: 1px solid #e0d5c8;
+  border-radius: 10px;
+  font-family: 'Lora', serif;
+  font-size: 0.9rem;
+  color: #3a2a1a;
+  background: #fff;
+  margin-bottom: 10px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-input:focus {
+  border-color: #C9A48E;
+}
+
+.form-input::placeholder {
+  color: #c5b8a8;
+}
+
+.form-shelf-picker {
+  display: flex;
+  gap: 6px;
+  margin: 6px 0 16px;
+}
+
+.shelf-pick-btn {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  padding: 6px 12px;
+  border: 1px solid #e0d5c8;
+  border-radius: 14px;
+  background: transparent;
+  color: #9a8572;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.shelf-pick-btn.active {
+  background: #6B4F35;
+  color: #FAF7F2;
+  border-color: #6B4F35;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 12px;
+  background: #7A9E6E;
+  color: #fff;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+}
+
+.form-submit:hover:not(:disabled) {
+  background: #6a8e5e;
+  transform: scale(1.01);
+}
+
+.form-submit:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}

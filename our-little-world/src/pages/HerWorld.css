@@ -1,0 +1,179 @@
+/* ── Her World — page layout and theme ── */
+
+.her-world {
+  --accent: #C9A48E;
+  --heading: #6B4F35;
+  --muted: #9a8572;
+
+  min-height: 100vh;
+  background: #FAF7F2;
+  color: #3a2a1a;
+  font-family: 'Lora', 'Playfair Display', serif;
+  padding: 0 0 60px;
+  overflow-x: hidden;
+}
+
+/* ── two-column layout ── */
+
+.her-layout {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 0;
+}
+
+.her-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.her-sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  padding: 40px 28px 40px 0;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+/* ── reading stats ── */
+
+.reading-stats {
+  display: flex;
+  gap: 32px;
+  padding: 28px 40px;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.stat-num {
+  font-family: 'DM Mono', monospace;
+  font-size: 1.8rem;
+  font-weight: 400;
+  color: #6B4F35;
+}
+
+.stat-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  text-transform: lowercase;
+  color: #9a8572;
+  letter-spacing: 0.06em;
+}
+
+/* ── shelf bar (tabs + add button) ── */
+
+.shelf-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  margin: 0 0 24px;
+  gap: 12px;
+}
+
+.shelf-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.shelf-tab {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  padding: 8px 16px;
+  border: 1px solid #e0d5c8;
+  border-radius: 20px;
+  background: transparent;
+  color: #9a8572;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.shelf-tab:hover {
+  background: #f0e8dc;
+}
+
+.shelf-tab.active {
+  background: #6B4F35;
+  color: #FAF7F2;
+  border-color: #6B4F35;
+}
+
+/* ── add book button ── */
+
+.add-book-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1.5px dashed #C9A48E;
+  border-radius: 20px;
+  padding: 7px 16px;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  color: #C9A48E;
+  cursor: pointer;
+  transition: all 0.2s;
+  flex-shrink: 0;
+}
+
+.add-book-btn:hover {
+  background: #f7ede4;
+  border-color: #6B4F35;
+  color: #6B4F35;
+}
+
+.add-book-btn svg {
+  flex-shrink: 0;
+}
+
+/* ── responsive ── */
+
+@media (max-width: 900px) {
+  .her-layout {
+    flex-direction: column;
+  }
+
+  .her-sidebar {
+    width: 100%;
+    position: static;
+    max-height: none;
+    padding: 20px 20px 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .reading-stats {
+    padding: 20px 20px;
+    gap: 24px;
+  }
+
+  .stat-num {
+    font-size: 1.4rem;
+  }
+
+  .shelf-bar {
+    padding: 0 20px;
+    flex-wrap: wrap;
+  }
+
+  .shelf-tabs {
+    overflow-x: auto;
+  }
+
+  .add-book-btn span {
+    display: none;
+  }
+
+  .add-book-btn {
+    padding: 8px;
+    border-radius: 50%;
+  }
+}

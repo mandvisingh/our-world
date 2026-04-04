@@ -3,20 +3,22 @@
   top: 20px;
   left: 20px;
   z-index: 10;
-  background: rgba(250, 247, 242, 0.85);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border: 1px solid #e0d5c8;
-  border-radius: 20px;
-  padding: 8px 18px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1.5px solid rgba(0, 0, 0, 0.06);
+  border-radius: 24px;
+  padding: 8px 20px;
   font-family: 'DM Mono', monospace;
-  font-size: 0.8rem;
-  color: #6B4F35;
+  font-size: 0.78rem;
+  color: var(--heading, #6B4F35);
   cursor: pointer;
-  transition: background 0.2s, transform 0.2s;
+  transition: all 0.25s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
 }
 
 .back-btn:hover {
-  background: #f0e8dc;
-  transform: scale(1.04);
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateX(-2px);
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
 }

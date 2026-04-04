@@ -18,6 +18,7 @@ export default function HisWorld() {
   const { books, loading, addBook, moveBook, deleteBook } = useBooks('him')
   const [selectedBook, setSelectedBook] = useState(null)
   const [activeShelf, setActiveShelf] = useState('read')
+
   const [showAddForm, setShowAddForm] = useState(false)
 
   const shelves = groupByShelf(books, SHELF_ORDER)
@@ -44,14 +45,17 @@ export default function HisWorld() {
 
           <div className="reading-stats">
             <div className="stat">
+              <span className="stat-emoji">📚</span>
               <span className="stat-num">{readCount}</span>
               <span className="stat-label">read</span>
             </div>
             <div className="stat">
+              <span className="stat-emoji">🎧</span>
               <span className="stat-num">{readingCount}</span>
-              <span className="stat-label">reading</span>
+              <span className="stat-label">listening</span>
             </div>
             <div className="stat">
+              <span className="stat-emoji">📋</span>
               <span className="stat-num">{toReadCount}</span>
               <span className="stat-label">want to read</span>
             </div>

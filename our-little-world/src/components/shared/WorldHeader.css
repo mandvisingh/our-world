@@ -6,12 +6,18 @@
 }
 
 .world-avatar {
-  width: 72px;
-  height: 72px;
+  width: 80px;
+  height: 80px;
   border-radius: 50%;
   overflow: hidden;
   border: 3px solid var(--accent, #C9A48E);
   flex-shrink: 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.world-avatar:hover {
+  transform: scale(1.05);
 }
 
 .world-avatar img {
@@ -23,17 +29,17 @@
 .world-header-text h1 {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-weight: 400;
-  font-size: 2rem;
+  font-weight: 600;
+  font-size: 2.2rem;
   margin: 0;
   color: var(--heading, #6B4F35);
 }
 
 .world-subtitle {
   font-family: 'DM Mono', monospace;
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   color: var(--muted, #9a8572);
-  margin: 4px 0 0;
+  margin: 6px 0 0;
 }
 
 @media (max-width: 600px) {
@@ -43,11 +49,11 @@
   }
 
   .world-header-text h1 {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
   }
 
   .world-avatar {
-    width: 56px;
-    height: 56px;
+    width: 64px;
+    height: 64px;
   }
 }

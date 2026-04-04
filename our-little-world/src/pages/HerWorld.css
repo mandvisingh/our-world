@@ -1,4 +1,4 @@
-/* ── Her World — page layout and theme ── */
+/* ── Her World — cozy warm illustrated feel ── */
 
 .her-world {
   --accent: #C9A48E;
@@ -6,14 +6,17 @@
   --muted: #9a8572;
 
   min-height: 100vh;
-  background: #FAF7F2;
+  background: #FFF8F0;
+  background-image:
+    radial-gradient(ellipse at 20% 0%, rgba(201, 164, 142, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 100%, rgba(122, 158, 110, 0.06) 0%, transparent 50%);
   color: #3a2a1a;
   font-family: 'Lora', 'Playfair Display', serif;
   padding: 0 0 60px;
   overflow-x: hidden;
 }
 
-/* ── two-column layout ── */
+/* ── layout ── */
 
 .her-layout {
   display: flex;
@@ -50,8 +53,8 @@
 
 .reading-stats {
   display: flex;
-  gap: 32px;
-  padding: 28px 40px;
+  gap: 20px;
+  padding: 24px 40px;
 }
 
 .stat {
@@ -59,20 +62,31 @@
   flex-direction: column;
   align-items: center;
   gap: 2px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(201, 164, 142, 0.2);
+  border-radius: 16px;
+  padding: 14px 22px;
+  min-width: 80px;
+}
+
+.stat-emoji {
+  font-size: 1.1rem;
+  margin-bottom: 2px;
 }
 
 .stat-num {
-  font-family: 'DM Mono', monospace;
+  font-family: 'Playfair Display', serif;
   font-size: 1.8rem;
-  font-weight: 400;
-  color: #6B4F35;
+  font-weight: 600;
+  color: var(--heading, #6B4F35);
+  line-height: 1;
 }
 
 .stat-label {
   font-family: 'DM Mono', monospace;
-  font-size: 0.7rem;
+  font-size: 0.65rem;
   text-transform: lowercase;
-  color: #9a8572;
+  color: var(--muted, #9a8572);
   letter-spacing: 0.06em;
 }
 
@@ -89,29 +103,31 @@
 
 .shelf-tabs {
   display: flex;
-  gap: 4px;
+  gap: 6px;
 }
 
 .shelf-tab {
   font-family: 'DM Mono', monospace;
-  font-size: 0.78rem;
-  padding: 8px 16px;
-  border: 1px solid #e0d5c8;
-  border-radius: 20px;
-  background: transparent;
+  font-size: 0.75rem;
+  padding: 8px 18px;
+  border: 1.5px solid rgba(201, 164, 142, 0.3);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.5);
   color: #9a8572;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.25s ease;
 }
 
 .shelf-tab:hover {
-  background: #f0e8dc;
+  background: rgba(201, 164, 142, 0.15);
+  border-color: rgba(201, 164, 142, 0.5);
 }
 
 .shelf-tab.active {
-  background: #6B4F35;
-  color: #FAF7F2;
-  border-color: #6B4F35;
+  background: linear-gradient(135deg, #C9A48E, #b8907a);
+  color: #fff;
+  border-color: transparent;
+  box-shadow: 0 2px 8px rgba(201, 164, 142, 0.35);
 }
 
 /* ── add book button ── */
@@ -120,21 +136,21 @@
   display: flex;
   align-items: center;
   gap: 6px;
-  background: none;
-  border: 1.5px dashed #C9A48E;
-  border-radius: 20px;
-  padding: 7px 16px;
+  background: rgba(255, 255, 255, 0.5);
+  border: 1.5px dashed rgba(201, 164, 142, 0.5);
+  border-radius: 24px;
+  padding: 8px 18px;
   font-family: 'DM Mono', monospace;
-  font-size: 0.78rem;
+  font-size: 0.75rem;
   color: #C9A48E;
   cursor: pointer;
-  transition: all 0.2s;
+  transition: all 0.25s ease;
   flex-shrink: 0;
 }
 
 .add-book-btn:hover {
-  background: #f7ede4;
-  border-color: #6B4F35;
+  background: rgba(201, 164, 142, 0.12);
+  border-color: #C9A48E;
   color: #6B4F35;
 }
 
@@ -164,8 +180,13 @@
 
 @media (max-width: 600px) {
   .reading-stats {
-    padding: 20px 20px;
-    gap: 24px;
+    padding: 16px 20px;
+    gap: 12px;
+  }
+
+  .stat {
+    padding: 10px 14px;
+    min-width: 70px;
   }
 
   .stat-num {

@@ -45,14 +45,17 @@ export default function HerWorld() {
 
           <div className="reading-stats">
             <div className="stat">
+              <span className="stat-emoji">📚</span>
               <span className="stat-num">{readCount}</span>
               <span className="stat-label">read</span>
             </div>
             <div className="stat">
+              <span className="stat-emoji">📖</span>
               <span className="stat-num">{readingCount}</span>
               <span className="stat-label">reading</span>
             </div>
             <div className="stat">
+              <span className="stat-emoji">✨</span>
               <span className="stat-num">{toReadCount}</span>
               <span className="stat-label">want to read</span>
             </div>

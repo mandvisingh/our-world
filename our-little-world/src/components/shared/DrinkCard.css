@@ -1,0 +1,149 @@
+.drink-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-top: 100px;
+}
+
+.drink-machine-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  transition: transform 0.3s ease;
+}
+
+.drink-machine-btn:hover {
+  transform: scale(1.06);
+}
+
+.drink-machine-btn:active {
+  transform: scale(0.97);
+}
+
+.coffee-machine-svg {
+  width: 100px;
+  height: 120px;
+  filter: drop-shadow(0 4px 12px rgba(107, 79, 53, 0.15));
+}
+
+/* steam animation */
+.steam {
+  animation: steamRise 2.5s ease-in-out infinite;
+}
+
+.steam-1 { animation-delay: 0s; }
+.steam-2 { animation-delay: 0.8s; }
+.steam-3 { animation-delay: 1.6s; }
+
+@keyframes steamRise {
+  0% { opacity: 0; transform: translateY(0); }
+  30% { opacity: 0.4; }
+  100% { opacity: 0; transform: translateY(-8px); }
+}
+
+/* drink order reveal */
+.drink-order {
+  background: #fff;
+  border: 1px solid #ede5da;
+  border-radius: 14px;
+  padding: 0;
+  max-height: 0;
+  overflow: hidden;
+  opacity: 0;
+  transition: max-height 0.4s ease, opacity 0.3s ease, padding 0.4s ease;
+}
+
+.drink-order.visible {
+  max-height: 160px;
+  opacity: 1;
+  padding: 16px 20px;
+}
+
+.drink-order-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+}
+
+.drink-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #b8a896;
+}
+
+.drink-name-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+.drink-name-btn:hover {
+  background: #f7f2eb;
+}
+
+.drink-emoji {
+  font-size: 1rem;
+}
+
+.drink-name {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #6B4F35;
+  font-weight: 600;
+}
+
+.drink-cycle-hint {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.55rem;
+  color: #c5b8a8;
+  margin-top: 2px;
+}
+
+.drink-detail {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  color: #9a8572;
+}
+
+.drink-hint {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  color: #c5b8a8;
+  margin: 0;
+  animation: hintPulse 2s ease-in-out infinite;
+}
+
+@keyframes hintPulse {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@media (max-width: 900px) {
+  .drink-card {
+    margin-top: 24px;
+    flex-direction: row;
+    gap: 16px;
+  }
+
+  .coffee-machine-svg {
+    width: 70px;
+    height: 84px;
+  }
+
+  .drink-hint {
+    display: none;
+  }
+}

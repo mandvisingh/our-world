@@ -4,6 +4,29 @@ function cacheKey(title, author) {
   return `${title}::${author}`
 }
 
+export async function searchBooks(query) {
+  if (!query || query.length < 2) return []
+
+  try {
+    const q = encodeURIComponent(query)
+    const res = await fetch(`https://openlibrary.org/search.json?q=${q}&limit=6&fields=title,author_name,cover_i,first_publish_year,key`)
+    const data = await res.json()
+
+    if (!data.docs) return []
+
+    return data.docs.map((doc) => ({
+      title: doc.title,
+      author: doc.author_name?.[0] || 'Unknown',
+      coverUrl: doc.cover_i
+        ? `https://covers.openlibrary.org/b/id/${doc.cover_i}-S.jpg`
+        : null,
+      year: doc.first_publish_year || null,
+    }))
+  } catch {
+    return []
+  }
+}
+
 export async function fetchBookDetails(title, author) {
   const key = cacheKey(title, author)
   if (cache.has(key)) return cache.get(key)

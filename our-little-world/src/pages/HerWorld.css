@@ -27,15 +27,23 @@
   min-width: 0;
 }
 
-.her-sidebar {
-  width: 280px;
+.her-sidebar-left,
+.her-sidebar-right {
+  width: 220px;
   flex-shrink: 0;
-  padding: 40px 28px 40px 0;
   position: sticky;
   top: 0;
   align-self: flex-start;
   max-height: 100vh;
   overflow-y: auto;
+}
+
+.her-sidebar-left {
+  padding: 40px 0 40px 28px;
+}
+
+.her-sidebar-right {
+  padding: 40px 28px 40px 0;
 }
 
 /* ── reading stats ── */
@@ -141,11 +149,16 @@
     flex-direction: column;
   }
 
-  .her-sidebar {
+  .her-sidebar-left,
+  .her-sidebar-right {
     width: 100%;
     position: static;
     max-height: none;
     padding: 20px 20px 0;
+  }
+
+  .her-sidebar-left {
+    order: -1;
   }
 }
 

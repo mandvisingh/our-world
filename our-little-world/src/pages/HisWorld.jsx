@@ -4,22 +4,21 @@ import WorldHeader from '../components/shared/WorldHeader'
 import BookShelf from '../components/books/BookShelf'
 import BookDetail from '../components/books/BookDetail'
 import AddBookForm from '../components/books/AddBookForm'
-import EditBookForm from '../components/books/EditBookForm'
-import RecommendationsPanel from '../components/books/RecommendationsPanel'
 import DrinkCard from '../components/shared/DrinkCard'
 import { useBooks } from '../hooks/useBooks'
-import { useRecommendations } from '../hooks/useRecommendations'
 import { groupByShelf } from '../utils/books'
 import { SHELF_ORDER, SHELF_LABELS } from '../constants/shelves'
-import './HerWorld.css'
+import './HisWorld.css'
 
-export default function HerWorld() {
-  const { books, loading, addBook, moveBook, deleteBook } = useBooks()
-  const { recs, updateRec } = useRecommendations()
+const HIS_DRINKS = [
+  { name: 'Venti Dark Roast', detail: 'extra shot, cream and sugar', emoji: '☕' },
+]
+
+export default function HisWorld() {
+  const { books, loading, addBook, moveBook, deleteBook } = useBooks('him')
   const [selectedBook, setSelectedBook] = useState(null)
-  const [activeShelf, setActiveShelf] = useState('currently-reading')
+  const [activeShelf, setActiveShelf] = useState('read')
   const [showAddForm, setShowAddForm] = useState(false)
-  const [editingRec, setEditingRec] = useState(null)
 
   const shelves = groupByShelf(books, SHELF_ORDER)
   const currentBooks = shelves[activeShelf] || []
@@ -28,19 +27,19 @@ export default function HerWorld() {
   const toReadCount = (shelves['to-read'] || []).length
 
   return (
-    <div className="her-world">
+    <div className="his-world">
       <BackButton />
 
-      <div className="her-layout">
-        <aside className="her-sidebar-left">
-          <DrinkCard />
+      <div className="his-layout">
+        <aside className="his-sidebar-left">
+          <DrinkCard drinks={HIS_DRINKS} />
         </aside>
 
-        <div className="her-main">
+        <div className="his-main">
           <WorldHeader
-            avatarSrc="/her.svg"
-            title="her world"
-            subtitle="books, matcha, and two very opinionated cats"
+            avatarSrc="/him.svg"
+            title="his world"
+            subtitle="history, dark roast, and a crocheted dill pickle"
           />
 
           <div className="reading-stats">
@@ -92,12 +91,7 @@ export default function HerWorld() {
           />
         </div>
 
-        <aside className="her-sidebar-right">
-          <RecommendationsPanel
-            recs={recs}
-            onEditRec={(index, rec) => setEditingRec({ index, rec })}
-          />
-        </aside>
+        <aside className="his-sidebar-right" />
       </div>
 
       {selectedBook && (
@@ -112,15 +106,6 @@ export default function HerWorld() {
         <AddBookForm
           onAdd={addBook}
           onClose={() => setShowAddForm(false)}
-        />
-      )}
-      {editingRec && (
-        <EditBookForm
-          title={editingRec.rec.title}
-          author={editingRec.rec.author}
-          formTitle="Edit recommendation"
-          onSave={(updated) => updateRec(editingRec.index, updated)}
-          onClose={() => setEditingRec(null)}
         />
       )}
     </div>

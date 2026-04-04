@@ -1,0 +1,163 @@
+/* ── His World — cool navy/slate palette ── */
+
+.his-world {
+  --accent: #C8A84B;
+  --heading: #2A3548;
+  --muted: #607080;
+
+  min-height: 100vh;
+  background: #E8ECF2;
+  color: #2A3548;
+  font-family: 'Lora', 'Playfair Display', serif;
+  padding: 0 0 60px;
+  overflow-x: hidden;
+}
+
+/* ── layout ── */
+
+.his-layout {
+  display: flex;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 0;
+}
+
+.his-main {
+  flex: 1;
+  min-width: 0;
+}
+
+.his-sidebar-left,
+.his-sidebar-right {
+  width: 220px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 0;
+  align-self: flex-start;
+  max-height: 100vh;
+  overflow-y: auto;
+}
+
+.his-sidebar-left {
+  padding: 40px 0 40px 28px;
+}
+
+.his-sidebar-right {
+  padding: 40px 28px 40px 0;
+}
+
+/* ── reading stats ── */
+
+.his-world .reading-stats {
+  display: flex;
+  gap: 32px;
+  padding: 28px 40px;
+}
+
+.his-world .stat-num {
+  color: #2A3548;
+}
+
+.his-world .stat-label {
+  color: #607080;
+}
+
+/* ── shelf bar ── */
+
+.his-world .shelf-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  margin: 0 0 24px;
+  gap: 12px;
+}
+
+.his-world .shelf-tabs {
+  display: flex;
+  gap: 4px;
+}
+
+.his-world .shelf-tab {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  padding: 8px 16px;
+  border: 1px solid #c8cdd6;
+  border-radius: 20px;
+  background: transparent;
+  color: #607080;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.his-world .shelf-tab:hover {
+  background: #dce1e9;
+}
+
+.his-world .shelf-tab.active {
+  background: #2A3548;
+  color: #E8ECF2;
+  border-color: #2A3548;
+}
+
+/* ── add book button ── */
+
+.his-world .add-book-btn {
+  border-color: #C8A84B;
+  color: #C8A84B;
+}
+
+.his-world .add-book-btn:hover {
+  background: #e8e4d8;
+  border-color: #2A3548;
+  color: #2A3548;
+}
+
+/* ── responsive ── */
+
+@media (max-width: 900px) {
+  .his-layout {
+    flex-direction: column;
+  }
+
+  .his-sidebar-left,
+  .his-sidebar-right {
+    width: 100%;
+    position: static;
+    max-height: none;
+    padding: 20px 20px 0;
+  }
+
+  .his-sidebar-left {
+    order: -1;
+  }
+}
+
+@media (max-width: 600px) {
+  .his-world .reading-stats {
+    padding: 20px 20px;
+    gap: 24px;
+  }
+
+  .his-world .stat-num {
+    font-size: 1.4rem;
+  }
+
+  .his-world .shelf-bar {
+    padding: 0 20px;
+    flex-wrap: wrap;
+  }
+
+  .his-world .shelf-tabs {
+    overflow-x: auto;
+  }
+
+  .his-world .add-book-btn span {
+    display: none;
+  }
+
+  .his-world .add-book-btn {
+    padding: 8px;
+    border-radius: 50%;
+  }
+}

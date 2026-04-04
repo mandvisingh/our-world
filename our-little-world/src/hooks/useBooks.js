@@ -1,11 +1,18 @@
 import { useState, useEffect, useCallback } from 'react'
 import { supabase } from '../lib/supabase'
-import { books as localBooks } from '../data/books'
+import { books as herLocalBooks } from '../data/books'
+import { hisBooks as hisLocalBooks } from '../data/hisBooks'
 
-export function useBooks() {
+const LOCAL_DATA = {
+  her: herLocalBooks,
+  him: hisLocalBooks,
+}
+
+export function useBooks(userId = 'her') {
   const [books, setBooks] = useState([])
   const [loading, setLoading] = useState(true)
   const isLocal = !supabase
+  const localBooks = LOCAL_DATA[userId] || []
 
   const fetchBooks = useCallback(async () => {
     setLoading(true)
@@ -18,7 +25,7 @@ export function useBooks() {
     const { data, error } = await supabase
       .from('books')
       .select('*')
-      .eq('user_id', 'her')
+      .eq('user_id', userId)
       .order('created_at', { ascending: false })
 
     if (error) {
@@ -36,7 +43,7 @@ export function useBooks() {
       )
     }
     setLoading(false)
-  }, [isLocal])
+  }, [isLocal, userId, localBooks])
 
   useEffect(() => {
     fetchBooks()
@@ -54,7 +61,7 @@ export function useBooks() {
 
       const { data, error } = await supabase
         .from('books')
-        .insert({ title, author, shelf, user_id: 'her' })
+        .insert({ title, author, shelf, user_id: userId })
         .select()
         .single()
 
@@ -74,7 +81,7 @@ export function useBooks() {
         ...prev,
       ])
     },
-    [isLocal]
+    [isLocal, userId]
   )
 
   const moveBook = useCallback(

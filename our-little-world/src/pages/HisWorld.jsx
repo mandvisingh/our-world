@@ -12,7 +12,8 @@ import { SHELF_ORDER, SHELF_LABELS } from '../constants/shelves'
 import './HisWorld.css'
 
 const HIS_DRINKS = [
-  { name: 'Venti Dark Roast', detail: 'extra shot, cream and sugar', emoji: '☕' },
+  { name: 'Venti Dark Roast', detail: '3 shots of espresso, cream and sugar', emoji: '☕' },
+  { name: 'Iced Latte', detail: 'extra espresso shot', emoji: '🧊' },
 ]
 
 export default function HisWorld() {
@@ -40,7 +41,7 @@ export default function HisWorld() {
 
       <div className="his-layout">
         <aside className="his-sidebar-left">
-          <DrinkCard drinks={HIS_DRINKS} />
+          <DrinkCard drinks={HIS_DRINKS} label="his usual" />
         </aside>
 
         <div className="his-main">

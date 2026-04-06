@@ -19,6 +19,12 @@
   font-family: 'DM Mono', monospace;
   font-size: 0.7rem;
   color: rgba(255, 255, 255, 0.6);
+  animation: coverPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes coverPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
 }
 
 .detail-cover-img {

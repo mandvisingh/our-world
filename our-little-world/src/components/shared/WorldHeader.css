@@ -35,6 +35,19 @@
   color: var(--heading, #6B4F35);
 }
 
+.world-job {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+  color: var(--accent, #C9A48E);
+  background: color-mix(in srgb, var(--accent, #C9A48E) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent, #C9A48E) 25%, transparent);
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-top: 4px;
+}
+
 .world-subtitle {
   font-family: 'DM Mono', monospace;
   font-size: 0.78rem;

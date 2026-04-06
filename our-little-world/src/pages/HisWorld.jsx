@@ -47,6 +47,7 @@ export default function HisWorld() {
           <WorldHeader
             avatarSrc="/him.svg"
             title="his world"
+            jobTitle="Government Administrator"
             subtitle="history, dark roast, and a crocheted dill pickle"
           />
 

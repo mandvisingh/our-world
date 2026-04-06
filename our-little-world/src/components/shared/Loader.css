@@ -1,0 +1,72 @@
+.loader {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  padding: 48px 0;
+}
+
+.loader-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--muted, #9a8572);
+  animation: loaderPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes loaderPulse {
+  0%, 100% { opacity: 0.4; }
+  50% { opacity: 1; }
+}
+
+/* ── animated book ── */
+
+.loader-book {
+  width: 36px;
+  height: 44px;
+  position: relative;
+}
+
+.loader-spine {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 6px;
+  height: 100%;
+  background: var(--accent, #C9A48E);
+  border-radius: 2px 0 0 2px;
+}
+
+.loader-page {
+  position: absolute;
+  left: 6px;
+  top: 2px;
+  width: 28px;
+  height: 40px;
+  border-radius: 0 3px 3px 0;
+  transform-origin: left center;
+  animation: pageFlip 1.8s ease-in-out infinite;
+}
+
+.loader-page-1 {
+  background: #f5ebe0;
+  animation-delay: 0s;
+}
+
+.loader-page-2 {
+  background: #ede1d3;
+  animation-delay: 0.3s;
+}
+
+.loader-page-3 {
+  background: #e5d5c3;
+  animation-delay: 0.6s;
+}
+
+@keyframes pageFlip {
+  0%, 100% {
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(-40deg);
+  }
+}

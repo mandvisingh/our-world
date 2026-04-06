@@ -1,11 +1,12 @@
 import BookSpine from './BookSpine'
+import Loader from '../shared/Loader'
 import './BookShelf.css'
 
 export default function BookShelf({ books, loading, onSelectBook }) {
   return (
     <div className="bookshelf">
       {loading ? (
-        <p className="shelf-loading">loading books...</p>
+        <Loader message="fetching books..." />
       ) : books.length === 0 ? (
         <p className="shelf-empty">No books on this shelf yet</p>
       ) : (

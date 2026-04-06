@@ -47,6 +47,7 @@ export default function HerWorld() {
           <WorldHeader
             avatarSrc="/her.svg"
             title="her world"
+            jobTitle="Software Developer"
             subtitle="books, matcha, and two very opinionated cats"
           />
 

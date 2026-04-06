@@ -29,10 +29,10 @@
 .world-header-text h1 {
   font-family: 'Playfair Display', serif;
   font-style: italic;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 2.2rem;
   margin: 0;
-  color: var(--heading, #6B4F35);
+  color: var(--heading, #3D2B1F);
 }
 
 .world-job {
@@ -50,8 +50,8 @@
 
 .world-subtitle {
   font-family: 'DM Mono', monospace;
-  font-size: 0.78rem;
-  color: var(--muted, #9a8572);
+  font-size: 0.8rem;
+  color: var(--muted, #6B5744);
   margin: 6px 0 0;
 }
 

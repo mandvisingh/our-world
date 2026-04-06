@@ -1,16 +1,16 @@
 /* ── His World — warm navy, old-library feel ── */
 
 .his-world {
-  --accent: #C8A84B;
-  --heading: #2A3548;
-  --muted: #607080;
+  --accent: #8B7332;
+  --heading: #1A2332;
+  --muted: #3D4F63;
 
   min-height: 100vh;
-  background: #F0EDE6;
+  background: #F2F0EB;
   background-image:
-    radial-gradient(ellipse at 80% 0%, rgba(200, 168, 75, 0.07) 0%, transparent 60%),
-    radial-gradient(ellipse at 10% 100%, rgba(42, 53, 72, 0.05) 0%, transparent 50%);
-  color: #2A3548;
+    radial-gradient(ellipse at 80% 0%, rgba(139, 115, 50, 0.05) 0%, transparent 60%),
+    radial-gradient(ellipse at 10% 100%, rgba(26, 35, 50, 0.04) 0%, transparent 50%);
+  color: #1A2332;
   font-family: 'Lora', 'Playfair Display', serif;
   padding: 0 0 60px;
   overflow-x: hidden;
@@ -58,16 +58,18 @@
 }
 
 .his-world .stat {
-  background: rgba(255, 255, 255, 0.5);
-  border: 1px solid rgba(200, 168, 75, 0.2);
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(139, 115, 50, 0.2);
 }
 
 .his-world .stat-num {
-  color: #2A3548;
+  color: #1A2332;
+  font-weight: 700;
 }
 
 .his-world .stat-label {
-  color: #607080;
+  color: #3D4F63;
+  font-size: 0.68rem;
 }
 
 /* ── shelf bar ── */
@@ -88,40 +90,41 @@
 
 .his-world .shelf-tab {
   font-family: 'DM Mono', monospace;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 400;
   padding: 8px 18px;
-  border: 1.5px solid rgba(42, 53, 72, 0.15);
+  border: 1.5px solid rgba(26, 35, 50, 0.18);
   border-radius: 24px;
-  background: rgba(255, 255, 255, 0.5);
-  color: #607080;
+  background: rgba(255, 255, 255, 0.6);
+  color: #3D4F63;
   cursor: pointer;
   transition: all 0.25s ease;
 }
 
 .his-world .shelf-tab:hover {
-  background: rgba(200, 168, 75, 0.1);
-  border-color: rgba(200, 168, 75, 0.4);
+  background: rgba(139, 115, 50, 0.1);
+  border-color: rgba(139, 115, 50, 0.4);
 }
 
 .his-world .shelf-tab.active {
-  background: linear-gradient(135deg, #2A3548, #3d4f68);
-  color: #F0EDE6;
+  background: #1A2332;
+  color: #F2F0EB;
   border-color: transparent;
-  box-shadow: 0 2px 8px rgba(42, 53, 72, 0.3);
+  box-shadow: 0 2px 8px rgba(26, 35, 50, 0.35);
 }
 
 /* ── add book button ── */
 
 .his-world .add-book-btn {
-  background: rgba(255, 255, 255, 0.5);
-  border-color: rgba(200, 168, 75, 0.4);
-  color: #C8A84B;
+  background: rgba(255, 255, 255, 0.6);
+  border-color: rgba(139, 115, 50, 0.35);
+  color: #6B5A2E;
 }
 
 .his-world .add-book-btn:hover {
-  background: rgba(200, 168, 75, 0.1);
-  border-color: #C8A84B;
-  color: #2A3548;
+  background: rgba(139, 115, 50, 0.1);
+  border-color: #8B7332;
+  color: #1A2332;
 }
 
 /* ── responsive ── */

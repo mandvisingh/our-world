@@ -1,8 +1,8 @@
 const SPINE_COLORS = [
-  '#C9A48E', '#7A9E6E', '#D4956A', '#A67B9B', '#6B8EAD',
-  '#C47A7A', '#8B7355', '#B5838D', '#6B9080', '#C4A35A',
-  '#D4A574', '#9B8EC4', '#7EB09B', '#C9786C', '#A0855B',
-  '#8BA4B8', '#C49B7A', '#7A8B6E', '#B88BA2', '#6E8F7A',
+  '#8B4513', '#2F4F4F', '#8B0000', '#2E4057', '#4A5A3C',
+  '#6B3A5D', '#3C1518', '#1B4332', '#3D405B', '#7C3626',
+  '#2C3E50', '#5B2C6F', '#1A3C40', '#6E2C00', '#283747',
+  '#4A235A', '#0E4D45', '#5D4037', '#1B2631', '#6B4226',
 ]
 
 export function spineColor(title) {
@@ -15,11 +15,11 @@ export function spineColor(title) {
 
 export function spineWidth(title) {
   const len = title.length
-  if (len < 10) return 28
-  if (len < 20) return 34
-  if (len < 30) return 40
-  if (len < 45) return 48
-  return 54
+  if (len < 10) return 34
+  if (len < 20) return 42
+  if (len < 30) return 50
+  if (len < 45) return 58
+  return 64
 }
 
 export function groupByShelf(books, validShelves) {

@@ -49,20 +49,18 @@ export default function HisWorld() {
 
       <div className="world-page">
         <div className="world-header-bar">
-          <div className="avatar-thought-wrapper">
-            <img src="/him.svg" alt="Him" className="world-title-avatar" />
-            {hisThoughts.length > 0 && (
-              <div className="avatar-thought-bubble">
-                {hisThoughts[hisThoughts.length - 1].text}
-              </div>
-            )}
-          </div>
+          <img src="/him.svg" alt="Him" className="world-title-avatar" />
           <div className="world-header-info">
             <h1 className="world-title">his world</h1>
             <div className="world-header-meta">
               <span className="world-header-job">Government Administrator</span>
               <span className="world-header-sub">history, dark roast, and a crocheted dill pickle</span>
             </div>
+            {hisThoughts.length > 0 && (
+              <p className="world-header-thought">
+                💭 {hisThoughts[hisThoughts.length - 1].text}
+              </p>
+            )}
           </div>
           <div className="world-header-drink">
             <DrinkCard drinks={HIS_DRINKS} label="his usual" />

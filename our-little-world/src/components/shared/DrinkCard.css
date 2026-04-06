@@ -154,3 +154,24 @@
     display: none;
   }
 }
+
+@media (max-width: 600px) {
+  .drink-card {
+    margin-top: 16px;
+  }
+
+  .drink-order {
+    min-width: 170px;
+    left: 0;
+    right: auto;
+  }
+
+  .drink-name {
+    font-size: 0.9rem;
+  }
+
+  .coffee-machine-svg {
+    width: 50px;
+    height: 60px;
+  }
+}

@@ -27,13 +27,8 @@
   display: flex;
   align-items: center;
   gap: 16px;
-  padding: 40px 40px 0;
+  padding: 60px 40px 0;
   min-height: 80px;
-}
-
-.his-world .avatar-thought-wrapper {
-  position: relative;
-  flex-shrink: 0;
 }
 
 .his-world .world-title-avatar {
@@ -45,43 +40,24 @@
   flex-shrink: 0;
 }
 
-.his-world .avatar-thought-bubble {
-  position: absolute;
-  bottom: calc(100% + 8px);
-  left: 50%;
-  transform: translateX(-50%);
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
-  padding: 6px 12px;
+.his-world .world-header-thought {
   font-family: 'DM Mono', monospace;
-  font-size: 0.62rem;
+  font-size: 0.7rem;
   font-style: italic;
-  color: var(--heading, #1A2332);
+  color: var(--muted, #3D4F63);
+  margin: 6px 0 0;
   line-height: 1.4;
-  max-width: 220px;
-  width: max-content;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-  animation: thoughtPop 0.4s ease both;
-  z-index: 5;
   overflow: hidden;
   display: -webkit-box;
-  -webkit-line-clamp: 3;
-  line-clamp: 3;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
+  animation: thoughtFadeIn 0.4s ease both;
 }
 
-.his-world .avatar-thought-bubble::after {
-  content: '';
-  position: absolute;
-  bottom: -6px;
-  left: 50%;
-  transform: translateX(-50%) rotate(45deg);
-  width: 10px;
-  height: 10px;
-  background: rgba(255, 255, 255, 0.92);
-  border-right: 1px solid rgba(0, 0, 0, 0.08);
-  border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+@keyframes thoughtFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 
 .his-world .world-header-info {
@@ -252,6 +228,10 @@
   }
 
   .his-world .world-header-sub {
+    font-size: 0.62rem;
+  }
+
+  .his-world .world-header-thought {
     font-size: 0.62rem;
   }
 

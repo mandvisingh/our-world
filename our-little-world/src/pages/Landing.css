@@ -282,17 +282,17 @@
   }
 
   .avatars {
-    gap: 40px;
-    bottom: 5%;
+    gap: 30px;
+    bottom: 8%;
   }
 
   .avatar-img {
-    width: 90px;
-    height: 90px;
+    width: 80px;
+    height: 80px;
   }
 
   .avatar-label {
-    font-size: 0.72rem;
+    font-size: 0.68rem;
   }
 }
 
@@ -304,12 +304,17 @@
   }
 
   .avatars {
-    gap: 28px;
+    gap: 20px;
+    bottom: 10%;
   }
 
   .avatar-img {
-    width: 72px;
-    height: 72px;
+    width: 65px;
+    height: 65px;
+  }
+
+  .avatar-label {
+    font-size: 0.6rem;
   }
 
   .clock,

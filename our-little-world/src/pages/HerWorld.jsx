@@ -48,20 +48,18 @@ export default function HerWorld() {
 
       <div className="world-page">
         <div className="world-header-bar">
-          <div className="avatar-thought-wrapper">
-            <img src="/her.svg" alt="Her" className="world-title-avatar" />
-            {herThoughts.length > 0 && (
-              <div className="avatar-thought-bubble">
-                {herThoughts[herThoughts.length - 1].text}
-              </div>
-            )}
-          </div>
+          <img src="/her.svg" alt="Her" className="world-title-avatar" />
           <div className="world-header-info">
             <h1 className="world-title">her world</h1>
             <div className="world-header-meta">
               <span className="world-header-job">Software Developer</span>
               <span className="world-header-sub">books, matcha, and two very opinionated cats</span>
             </div>
+            {herThoughts.length > 0 && (
+              <p className="world-header-thought">
+                💭 {herThoughts[herThoughts.length - 1].text}
+              </p>
+            )}
           </div>
           <div className="world-header-drink">
             <DrinkCard />

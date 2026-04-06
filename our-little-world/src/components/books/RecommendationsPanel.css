@@ -113,8 +113,14 @@
   .recs-list {
     flex-direction: row;
     overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
     gap: 16px;
     padding-bottom: 4px;
+  }
+
+  .recs-list::-webkit-scrollbar {
+    display: none;
   }
 
   .rec-card {
@@ -126,5 +132,25 @@
 
   .rec-info {
     align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .recs-section {
+    padding: 18px;
+    border-radius: 14px;
+  }
+
+  .recs-header h2 {
+    font-size: 1rem;
+  }
+
+  .rec-card {
+    min-width: 90px;
+    min-height: 44px;
+  }
+
+  .rec-title {
+    font-size: 0.72rem;
   }
 }

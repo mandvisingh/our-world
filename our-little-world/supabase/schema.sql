@@ -79,6 +79,33 @@ create policy "Authenticated users can manage recommendations"
   to authenticated
   using (true);
 
+-- Book details cache — stores Open Library API results to avoid repeat calls
+create table if not exists book_details_cache (
+  id              uuid primary key default gen_random_uuid(),
+  cache_key       text unique not null,  -- "title::author" lowercase
+  cover_url       text,
+  description     text,
+  pages           int,
+  first_published int,
+  subjects        jsonb default '[]',
+  fetched_at      timestamptz default now()
+);
+
+create index if not exists idx_book_cache_key on book_details_cache (cache_key);
+
+alter table book_details_cache enable row level security;
+
+create policy "Book cache is publicly readable"
+  on book_details_cache for select using (true);
+
+create policy "Anyone can insert cache (dev)"
+  on book_details_cache for insert
+  to anon with check (true);
+
+create policy "Auth can insert cache"
+  on book_details_cache for insert
+  to authenticated with check (true);
+
 -- For development: also allow anon key to write (remove in production)
 create policy "Anon can insert books (dev)"
   on books for insert

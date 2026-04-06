@@ -11,7 +11,7 @@ import BookSearch from '../components/books/BookSearch'
 import { useBooks } from '../hooks/useBooks'
 import { useRecommendations } from '../hooks/useRecommendations'
 import { groupByShelf } from '../utils/books'
-import { SHELF_ORDER, SHELF_LABELS } from '../constants/shelves'
+import { SHELF_ORDER, SHELF_LABELS, STATS_CONFIG } from '../constants/shelves'
 import './HerWorld.css'
 
 export default function HerWorld() {
@@ -30,9 +30,6 @@ export default function HerWorld() {
   const currentBooks = isSearching
     ? books.filter(b => b.title.toLowerCase().includes(q) || b.author.toLowerCase().includes(q))
     : (shelves[activeShelf] || [])
-  const readCount = (shelves['read'] || []).length
-  const readingCount = (shelves['currently-reading'] || []).length
-  const toReadCount = (shelves['to-read'] || []).length
 
   return (
     <div className="her-world">
@@ -52,21 +49,13 @@ export default function HerWorld() {
           />
 
           <div className="reading-stats">
-            <div className="stat">
-              <span className="stat-emoji">📚</span>
-              <span className="stat-num">{readCount}</span>
-              <span className="stat-label">read</span>
-            </div>
-            <div className="stat">
-              <span className="stat-emoji">📖</span>
-              <span className="stat-num">{readingCount}</span>
-              <span className="stat-label">reading</span>
-            </div>
-            <div className="stat">
-              <span className="stat-emoji">✨</span>
-              <span className="stat-num">{toReadCount}</span>
-              <span className="stat-label">want to read</span>
-            </div>
+            {STATS_CONFIG.map(({ key, emoji, label }) => (
+              <div className="stat" key={key}>
+                <span className="stat-emoji">{emoji}</span>
+                <span className="stat-num">{(shelves[key] || []).length}</span>
+                <span className="stat-label">{label}</span>
+              </div>
+            ))}
           </div>
 
           <div className="shelf-bar">

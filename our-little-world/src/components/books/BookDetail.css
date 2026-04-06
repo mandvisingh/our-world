@@ -87,8 +87,11 @@
   margin-top: 2px;
 }
 
-.shelf-read { background: #e8f0e4; color: #4a6b3e; }
 .shelf-currently-reading { background: #fef3e2; color: #8a6520; }
+.shelf-currently-listening { background: #e2f0fe; color: #20608a; }
+.shelf-finished { background: #e8f0e4; color: #4a6b3e; }
+.shelf-read { background: #e8f0e4; color: #4a6b3e; }
+.shelf-want-to-pick-up { background: #e8e4f0; color: #5a4a7a; }
 .shelf-to-read { background: #e8e4f0; color: #5a4a7a; }
 .shelf-paused { background: #f0e8e4; color: #7a6455; }
 .shelf-dnf { background: #f0e4e4; color: #7a4a4a; }

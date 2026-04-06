@@ -22,12 +22,25 @@ export function spineWidth(title) {
   return 64
 }
 
+// map legacy shelf names to new ones
+const SHELF_ALIASES = {
+  'read': 'finished',
+  'to-read': 'want-to-pick-up',
+  'to-listen': 'want-to-pick-up',
+}
+
+export function normalizeShelf(shelf) {
+  return SHELF_ALIASES[shelf] || shelf
+}
+
 export function groupByShelf(books, validShelves) {
   const shelves = {}
+  for (const s of validShelves) shelves[s] = []
   for (const b of books) {
-    const key = validShelves.includes(b.shelf) ? b.shelf : 'read'
+    const mapped = normalizeShelf(b.shelf)
+    const key = validShelves.includes(mapped) ? mapped : 'finished'
     if (!shelves[key]) shelves[key] = []
-    shelves[key].push(b)
+    shelves[key].push({ ...b, shelf: key })
   }
   return shelves
 }

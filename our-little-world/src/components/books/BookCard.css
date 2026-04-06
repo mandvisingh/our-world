@@ -1,0 +1,132 @@
+.book-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 110px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  text-align: left;
+  transition: transform 0.2s ease;
+}
+
+.book-card:hover {
+  transform: translateY(-4px);
+}
+
+.book-card:active {
+  transform: translateY(-2px);
+}
+
+.book-card-cover {
+  width: 110px;
+  height: 164px;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 2px 3px 10px rgba(0, 0, 0, 0.15);
+  transition: box-shadow 0.2s ease;
+}
+
+.book-card:hover .book-card-cover {
+  box-shadow: 3px 5px 16px rgba(0, 0, 0, 0.22);
+}
+
+.book-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.book-card-placeholder {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+}
+
+.book-card-loading {
+  color: rgba(255, 255, 255, 0.5);
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  animation: cardPulse 1.2s ease-in-out infinite;
+}
+
+@keyframes cardPulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.8; }
+}
+
+.book-card-fallback-title {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-size: 0.6rem;
+  color: rgba(255, 255, 255, 0.9);
+  text-align: center;
+  line-height: 1.3;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4;
+  -webkit-box-orient: vertical;
+}
+
+.book-card-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+  padding: 0 2px;
+}
+
+.book-card-title {
+  font-family: 'Lora', serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--heading, #3D2B1F);
+  line-height: 1.3;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.book-card-author {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  color: var(--muted, #6B5744);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .book-card {
+    width: 95px;
+  }
+
+  .book-card-cover {
+    width: 95px;
+    height: 142px;
+  }
+
+  .book-card-title {
+    font-size: 0.62rem;
+  }
+
+  .book-card-author {
+    font-size: 0.52rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .book-card {
+    width: 82px;
+  }
+
+  .book-card-cover {
+    width: 82px;
+    height: 123px;
+  }
+}

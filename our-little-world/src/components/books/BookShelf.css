@@ -2,6 +2,48 @@
   padding: 0 40px;
 }
 
+/* ── view toggle ── */
+
+.view-toggle {
+  display: flex;
+  gap: 4px;
+  justify-content: flex-end;
+  margin-bottom: 12px;
+}
+
+.view-btn {
+  background: rgba(255, 255, 255, 0.4);
+  border: 1.5px solid rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  padding: 6px 8px;
+  cursor: pointer;
+  color: var(--muted, #6B5744);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.view-btn:hover {
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.view-btn.active {
+  background: var(--heading, #3D2B1F);
+  color: #fff;
+  border-color: transparent;
+}
+
+/* ── grid view (covers) ── */
+
+.shelf-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px 14px;
+}
+
+/* ── spine view ── */
+
 .shelf-row {
   display: flex;
   align-items: flex-end;
@@ -22,26 +64,41 @@
   margin-top: 0;
 }
 
+/* ── states ── */
+
 .shelf-loading,
 .shelf-empty {
   font-family: 'DM Mono', monospace;
   font-size: 0.85rem;
-  color: var(--muted, #b8a896);
+  color: var(--muted, #6B5744);
   padding: 40px 0;
   text-align: center;
 }
+
+/* ── responsive ── */
 
 @media (max-width: 600px) {
   .bookshelf {
     padding: 0 16px;
   }
 
+  .shelf-grid {
+    gap: 12px 10px;
+  }
+
   .shelf-row {
-    min-height: 120px;
+    min-height: 130px;
     gap: 2px;
   }
 
   .shelf-board {
     height: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .shelf-grid {
+    gap: 10px 8px;
+    justify-content: center;
   }
 }

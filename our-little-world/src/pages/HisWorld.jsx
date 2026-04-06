@@ -6,9 +6,10 @@ import BookDetail from '../components/books/BookDetail'
 import AddBookForm from '../components/books/AddBookForm'
 import DrinkCard from '../components/shared/DrinkCard'
 import BookSearch from '../components/books/BookSearch'
+import TodayInHistory from '../components/history/TodayInHistory'
 import { useBooks } from '../hooks/useBooks'
 import { groupByShelf } from '../utils/books'
-import { SHELF_ORDER, SHELF_LABELS } from '../constants/shelves'
+import { SHELF_ORDER, SHELF_LABELS, STATS_CONFIG } from '../constants/shelves'
 import './HisWorld.css'
 
 const HIS_DRINKS = [
@@ -19,7 +20,7 @@ const HIS_DRINKS = [
 export default function HisWorld() {
   const { books, loading, addBook, moveBook, deleteBook } = useBooks('him')
   const [selectedBook, setSelectedBook] = useState(null)
-  const [activeShelf, setActiveShelf] = useState('read')
+  const [activeShelf, setActiveShelf] = useState('finished')
 
   const [showAddForm, setShowAddForm] = useState(false)
   const [searchQuery, setSearchQuery] = useState('')
@@ -31,9 +32,6 @@ export default function HisWorld() {
   const currentBooks = isSearching
     ? books.filter(b => b.title.toLowerCase().includes(q) || b.author.toLowerCase().includes(q))
     : (shelves[activeShelf] || [])
-  const readCount = (shelves['read'] || []).length
-  const readingCount = (shelves['currently-reading'] || []).length
-  const toReadCount = (shelves['to-read'] || []).length
 
   return (
     <div className="his-world">
@@ -53,21 +51,13 @@ export default function HisWorld() {
           />
 
           <div className="reading-stats">
-            <div className="stat">
-              <span className="stat-emoji">📚</span>
-              <span className="stat-num">{readCount}</span>
-              <span className="stat-label">read</span>
-            </div>
-            <div className="stat">
-              <span className="stat-emoji">🎧</span>
-              <span className="stat-num">{readingCount}</span>
-              <span className="stat-label">listening</span>
-            </div>
-            <div className="stat">
-              <span className="stat-emoji">📋</span>
-              <span className="stat-num">{toReadCount}</span>
-              <span className="stat-label">want to read</span>
-            </div>
+            {STATS_CONFIG.map(({ key, emoji, label }) => (
+              <div className="stat" key={key}>
+                <span className="stat-emoji">{emoji}</span>
+                <span className="stat-num">{(shelves[key] || []).length}</span>
+                <span className="stat-label">{label}</span>
+              </div>
+            ))}
           </div>
 
           <div className="shelf-bar">
@@ -106,7 +96,9 @@ export default function HisWorld() {
           />
         </div>
 
-        <aside className="his-sidebar-right" />
+        <aside className="his-sidebar-right">
+          <TodayInHistory />
+        </aside>
       </div>
 
       {selectedBook && (

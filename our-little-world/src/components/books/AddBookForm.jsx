@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from 'react'
 import Modal from '../shared/Modal'
-import { SHELVES } from '../../constants/shelves'
+import { SHELF_ORDER, SHELF_LABELS } from '../../constants/shelves'
 import { searchBooks } from '../../services/openLibrary'
 import './AddBookForm.css'
 
@@ -8,7 +8,7 @@ export default function AddBookForm({ onAdd, onClose }) {
   const [query, setQuery] = useState('')
   const [title, setTitle] = useState('')
   const [author, setAuthor] = useState('')
-  const [shelf, setShelf] = useState('to-read')
+  const [shelf, setShelf] = useState('want-to-pick-up')
   const [results, setResults] = useState([])
   const [searching, setSearching] = useState(false)
   const [picked, setPicked] = useState(false)
@@ -110,14 +110,14 @@ export default function AddBookForm({ onAdd, onClose }) {
           onChange={(e) => setAuthor(e.target.value)}
         />
         <div className="form-shelf-picker">
-          {SHELVES.slice(0, 3).map((s) => (
+          {SHELF_ORDER.map((key) => (
             <button
-              key={s.key}
+              key={key}
               type="button"
-              className={`shelf-pick-btn ${shelf === s.key ? 'active' : ''}`}
-              onClick={() => setShelf(s.key)}
+              className={`shelf-pick-btn ${shelf === key ? 'active' : ''}`}
+              onClick={() => setShelf(key)}
             >
-              {s.label}
+              {SHELF_LABELS[key]}
             </button>
           ))}
         </div>

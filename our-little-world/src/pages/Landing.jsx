@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { useEdmontonClock } from '../hooks/useEdmontonClock'
 import { useWeather } from '../hooks/useWeather'
 import { formatTime, formatDate, isDayTime } from '../utils/edmonton'
+import ChatBubbles from '../components/chat/ChatBubbles'
 import './Landing.css'
 
 const backyardDay = '/backyard-day.svg'
@@ -20,6 +21,8 @@ export default function Landing() {
 
       <h1 className="title">our little corner of the world</h1>
       <div className="badge">{isDay ? '☀️ day' : '🌙 night'}</div>
+
+      <ChatBubbles />
 
       <div className="avatars">
         <button className="avatar-btn" onClick={() => navigate('/her')}>

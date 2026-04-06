@@ -126,21 +126,54 @@
   }
 }
 
+/* ── tablet ── */
+
+@media (max-width: 768px) {
+  .chat-container {
+    bottom: 35%;
+    width: 78vw;
+  }
+}
+
 /* ── mobile ── */
 
 @media (max-width: 600px) {
   .chat-container {
-    bottom: 40%;
-    width: 85vw;
+    bottom: 32%;
+    width: 88vw;
   }
 
   .chat-bubble {
     font-size: 0.65rem;
-    padding: 5px 9px;
+    padding: 6px 10px;
+    max-width: 82%;
   }
 
   .chat-avatar {
     width: 20px;
     height: 20px;
+  }
+
+  .chat-row {
+    gap: 5px;
+  }
+}
+
+/* ── small phones ── */
+
+@media (max-width: 380px) {
+  .chat-container {
+    bottom: 30%;
+    width: 92vw;
+  }
+
+  .chat-bubble {
+    font-size: 0.6rem;
+    padding: 5px 8px;
+  }
+
+  .chat-avatar {
+    width: 18px;
+    height: 18px;
   }
 }

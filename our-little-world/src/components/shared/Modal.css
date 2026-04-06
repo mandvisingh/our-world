@@ -52,7 +52,15 @@
 }
 
 @media (max-width: 600px) {
+  .modal-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
   .modal-content {
-    padding: 24px;
+    padding: 24px 20px;
+    border-radius: 18px 18px 0 0;
+    max-height: 85vh;
+    max-width: 100%;
   }
 }

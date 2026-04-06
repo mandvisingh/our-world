@@ -179,3 +179,22 @@
   opacity: 0.45;
   cursor: not-allowed;
 }
+
+@media (max-width: 600px) {
+  .form-shelf-picker {
+    flex-wrap: wrap;
+  }
+
+  .shelf-pick-btn {
+    font-size: 0.65rem;
+    padding: 6px 10px;
+  }
+
+  .form-input {
+    font-size: 16px; /* prevents iOS zoom on focus */
+  }
+
+  .form-title {
+    font-size: 1.1rem;
+  }
+}

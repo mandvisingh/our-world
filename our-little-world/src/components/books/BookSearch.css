@@ -54,6 +54,11 @@
 
 @media (max-width: 600px) {
   .book-search {
-    margin: 0 20px 16px;
+    margin: 0 16px 14px;
+    padding: 7px 14px;
+  }
+
+  .book-search-input {
+    font-size: 0.72rem;
   }
 }

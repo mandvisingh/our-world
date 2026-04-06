@@ -9,7 +9,26 @@ html, body, #root {
   min-height: 100%;
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  overflow-x: hidden;
+}
+
 body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* prevent tap highlight on mobile */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* larger touch targets on mobile */
+@media (max-width: 600px) {
+  button {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }

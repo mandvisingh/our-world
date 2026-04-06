@@ -46,11 +46,19 @@
 
 @media (max-width: 600px) {
   .book-spine {
-    height: 120px;
+    height: 110px;
+    min-width: 24px;
   }
 
   .spine-text {
-    max-height: 100px;
-    font-size: 0.5rem;
+    max-height: 90px;
+    font-size: 0.48rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .book-spine {
+    height: 95px;
+    min-width: 22px;
   }
 }

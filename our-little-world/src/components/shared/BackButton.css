@@ -22,3 +22,12 @@
   transform: translateX(-2px);
   box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
 }
+
+@media (max-width: 600px) {
+  .back-btn {
+    top: 14px;
+    left: 14px;
+    padding: 6px 14px;
+    font-size: 0.72rem;
+  }
+}

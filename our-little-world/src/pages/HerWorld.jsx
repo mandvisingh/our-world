@@ -7,6 +7,7 @@ import AddBookForm from '../components/books/AddBookForm'
 import EditBookForm from '../components/books/EditBookForm'
 import RecommendationsPanel from '../components/books/RecommendationsPanel'
 import DrinkCard from '../components/shared/DrinkCard'
+import BookSearch from '../components/books/BookSearch'
 import { useBooks } from '../hooks/useBooks'
 import { useRecommendations } from '../hooks/useRecommendations'
 import { groupByShelf } from '../utils/books'
@@ -20,9 +21,15 @@ export default function HerWorld() {
   const [activeShelf, setActiveShelf] = useState('currently-reading')
   const [showAddForm, setShowAddForm] = useState(false)
   const [editingRec, setEditingRec] = useState(null)
+  const [searchQuery, setSearchQuery] = useState('')
 
   const shelves = groupByShelf(books, SHELF_ORDER)
-  const currentBooks = shelves[activeShelf] || []
+
+  const isSearching = searchQuery.trim().length > 0
+  const q = searchQuery.toLowerCase()
+  const currentBooks = isSearching
+    ? books.filter(b => b.title.toLowerCase().includes(q) || b.author.toLowerCase().includes(q))
+    : (shelves[activeShelf] || [])
   const readCount = (shelves['read'] || []).length
   const readingCount = (shelves['currently-reading'] || []).length
   const toReadCount = (shelves['to-read'] || []).length
@@ -87,6 +94,8 @@ export default function HerWorld() {
               <span>Add book</span>
             </button>
           </div>
+
+          <BookSearch value={searchQuery} onChange={setSearchQuery} />
 
           <BookShelf
             books={currentBooks}

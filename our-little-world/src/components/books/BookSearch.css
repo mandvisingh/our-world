@@ -1,0 +1,59 @@
+.book-search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1.5px solid rgba(0, 0, 0, 0.06);
+  border-radius: 24px;
+  padding: 8px 16px;
+  margin: 0 40px 20px;
+  transition: all 0.25s ease;
+}
+
+.book-search.focused {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: var(--accent, #C9A48E);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+}
+
+.book-search-icon {
+  flex-shrink: 0;
+  color: var(--muted, #9a8572);
+  opacity: 0.6;
+}
+
+.book-search-input {
+  flex: 1;
+  border: none;
+  background: none;
+  outline: none;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.78rem;
+  color: var(--heading, #3a2a1a);
+}
+
+.book-search-input::placeholder {
+  color: var(--muted, #9a8572);
+  opacity: 0.6;
+}
+
+.book-search-clear {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--muted, #9a8572);
+  cursor: pointer;
+  padding: 0 2px;
+  line-height: 1;
+  transition: color 0.2s;
+}
+
+.book-search-clear:hover {
+  color: var(--heading, #3a2a1a);
+}
+
+@media (max-width: 600px) {
+  .book-search {
+    margin: 0 20px 16px;
+  }
+}

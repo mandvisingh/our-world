@@ -1,0 +1,67 @@
+.activity-section {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 18px;
+  padding: 20px;
+  margin-top: 24px;
+}
+
+.activity-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.activity-icon {
+  font-size: 0.9rem;
+}
+
+.activity-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--heading, #3D2B1F);
+  margin: 0;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.activity-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+.activity-item:last-child {
+  border-bottom: none;
+}
+
+.activity-label {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.7rem;
+  color: var(--heading, #3D2B1F);
+}
+
+.activity-mood {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.6rem;
+  color: var(--muted, #6B5744);
+  font-style: italic;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .activity-section {
+    margin-top: 16px;
+    padding: 16px;
+  }
+}

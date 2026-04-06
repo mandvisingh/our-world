@@ -1,0 +1,91 @@
+.about-section {
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.about-profile {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin-bottom: 40px;
+}
+
+.about-avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 3px solid var(--accent, #A67B5B);
+  flex-shrink: 0;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+}
+
+.about-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.about-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.about-info h2 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 700;
+  font-size: 2rem;
+  color: var(--heading, #3D2B1F);
+  margin: 0;
+}
+
+.about-job {
+  display: inline-block;
+  font-family: 'DM Mono', monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.04em;
+  color: var(--accent, #A67B5B);
+  background: color-mix(in srgb, var(--accent, #A67B5B) 10%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent, #A67B5B) 25%, transparent);
+  padding: 3px 12px;
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.about-subtitle {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.82rem;
+  color: var(--muted, #6B5744);
+  margin: 4px 0 0;
+}
+
+.about-drink {
+  display: flex;
+  justify-content: center;
+}
+
+.about-drink .drink-card {
+  margin-top: 0;
+}
+
+@media (max-width: 600px) {
+  .about-section {
+    padding: 0 16px;
+  }
+
+  .about-profile {
+    gap: 16px;
+  }
+
+  .about-avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  .about-info h2 {
+    font-size: 1.5rem;
+  }
+}

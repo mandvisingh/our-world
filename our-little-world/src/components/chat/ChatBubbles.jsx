@@ -1,8 +1,8 @@
-import { useAgentChat } from '../../hooks/useAgentChat'
+import { useAgents } from '../../agents/AgentContext'
 import './ChatBubbles.css'
 
 export default function ChatBubbles() {
-  const { messages, typing } = useAgentChat()
+  const { messages, typing } = useAgents()
 
   return (
     <div className="chat-container">

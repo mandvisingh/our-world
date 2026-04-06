@@ -1,9 +1,9 @@
 .recs-section {
-  background: #fff;
-  border: 1px solid #ede5da;
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.06);
   border-radius: 18px;
   padding: 24px;
-  margin-top: 100px;
+  margin-top: 0;
 }
 
 .recs-header {

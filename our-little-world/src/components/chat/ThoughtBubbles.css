@@ -1,0 +1,70 @@
+.thoughts-section {
+  background: rgba(255, 255, 255, 0.5);
+  border: 1px dashed rgba(0, 0, 0, 0.1);
+  border-radius: 18px;
+  padding: 20px;
+  margin-top: 24px;
+}
+
+.thoughts-header {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.thoughts-icon {
+  font-size: 1rem;
+}
+
+.thoughts-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 0.95rem;
+  color: var(--heading, #3D2B1F);
+  margin: 0;
+}
+
+.thoughts-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.thought-bubble {
+  background: rgba(255, 255, 255, 0.6);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 12px;
+  padding: 10px 14px;
+  animation: thoughtFade 0.4s ease both;
+}
+
+.thought-text {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.72rem;
+  font-style: italic;
+  color: var(--heading, #3D2B1F);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.thought-time {
+  font-family: 'DM Mono', monospace;
+  font-size: 0.58rem;
+  color: var(--muted, #6B5744);
+  margin-top: 4px;
+  display: block;
+}
+
+@keyframes thoughtFade {
+  from { opacity: 0; transform: translateY(4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 900px) {
+  .thoughts-section {
+    margin-top: 16px;
+    padding: 16px;
+  }
+}
